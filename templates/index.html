@@ -1,9 +1,39 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block links %}
+
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+{% endblock %}
+
 {% block content %}
 
-<div id="root"></div>
+<header class="foi-header landing-header">
+    <div class="container">
+        {% include 'navbar.html' %}
+        <div class="header-content">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Great app that makes your life awesome</h1>
+                    <p class="text-dark">He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement.</p>
+                    <button class="btn btn-primary mb-4">Get Started</button>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'images/app_1.png' %}" alt="app" width="388px" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{% include 'footer.html' %}
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- <div id="root"></div>
 <script src="{% static 'index-bundle.js' %}"></script>
+
 
 {% endblock %}
