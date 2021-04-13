@@ -5,6 +5,7 @@
 
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
 
+
 {% endblock %}
 
 {% block content %}
@@ -15,9 +16,9 @@
         <div class="header-content">
             <div class="row">
                 <div class="col-md-6">
-                    <h1>Great app that makes your life awesome</h1>
+                    <h1>Compare the stats of any youtube video.</h1>
                     <p class="text-dark">He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement.</p>
-                    <button class="btn btn-primary mb-4">Get Started</button>
+                    <a href="{% url 'comparer:dashboard' %}" class="btn btn-primary mb-4">Start Comparing</a>
                 </div>
                 <div class="col-md-6">
                     <img src="{% static 'images/app_1.png' %}" alt="app" width="388px" class="img-fluid">

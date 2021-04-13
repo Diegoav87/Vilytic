@@ -34,7 +34,7 @@ def login_user(request):
 
         if user is not None:
             login(request, user)
-            return redirect('index')
+            return redirect('comparer:dashboard')
         else:
             messages.info(request, "Username or password is incorrect")
 
