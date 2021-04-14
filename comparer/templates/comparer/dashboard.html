@@ -83,42 +83,16 @@
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Video Comparer</h1>
                 </div>
 
-                <!-- Topbar Search -->
-                <div class="d-flex w-100 ml-auto mr-auto mb-4 mt-4">
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto  navbar-search w-100">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-white border-0 " placeholder="Search for video..."
-                                aria-label="Search" >
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <div>
-                        <h3 class="ml-4 mr-4">VS</h3>
-                    </div>
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto navbar-search w-100">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-white border-0" placeholder="Search for video..."
-                                aria-label="Search" >
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <div id="root"></div>
+
+                
+
+                
         
                 <!-- Content Row -->
                 <div class="row">
@@ -276,5 +250,7 @@
 <script src="{% static 'js/Dashboard/chart-area-demo.js' %}"></script>
 <script src="{% static 'js/Dashboard/chart-pie-demo.js' %}"></script>
 
+<!-- React -->
+<script src="{% static 'index-bundle.js' %}"></script>
 
 {% endblock %}
