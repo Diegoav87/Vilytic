@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 const slugify = require("slugify");
-import Video from "../Video/Video";
+import VideoStats from "../VideoStats/VideoStats";
+import Spinner from "../Spinner/Spinner";
+import VideoList from "../VideoList/VideoList";
 
 const VideoSearch = () => {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [showVideos, setShowVideos] = useState(false);
   const [videos, setVideos] = useState([]);
+  const [searchById, setSearchById] = useState(false);
+  const [videoId, setVideoId] = useState("");
+  const [showStats, setShowStats] = useState(false);
 
   const sendQuery = () => {
     setLoading(true);
@@ -21,37 +26,27 @@ const VideoSearch = () => {
 
   const queryChange = (e) => {
     e.preventDefault();
+
+    setVideoId(e.target.value);
     setQuery(e.target.value);
   };
 
   const searchButtonClick = () => {
-    sendQuery();
+    if (searchById) {
+      setShowVideos(false);
+      setShowStats(true);
+    } else {
+      sendQuery();
+    }
   };
 
-  let videoResults = null;
-
-  if (loading) {
-    videoResults = (
-      <div
-        className="spinner-border text-primary ml-auto mr-auto mt-4"
-        role="status"
-      >
-        <span className="sr-only">Loading...</span>
-      </div>
-    );
-  } else {
-    if (showVideos) {
-      const videoList = videos.map((video) => {
-        return (
-          <Video url={video.thumbnail} title={video.title} key={video.id} />
-        );
-      });
-
-      videoResults = <ul className="list-group mt-4 mb-4">{videoList}</ul>;
+  const checkboxChange = (e) => {
+    if (e.target.checked) {
+      setSearchById(true);
     } else {
-      videoResults = null;
+      setSearchById(false);
     }
-  }
+  };
 
   return (
     <div className="w-100">
@@ -75,8 +70,22 @@ const VideoSearch = () => {
           </div>
         </div>
       </form>
+      <div className="form-check mt-2 ml-2">
+        <input
+          className="form-check-input"
+          type="checkbox"
+          value=""
+          id="flexCheckDefault"
+          onChange={checkboxChange}
+        />
+        <label className="form-check-label" htmlFor="flexCheckDefault">
+          Search by video id
+        </label>
+      </div>
 
-      {videoResults}
+      {loading ? <Spinner /> : null}
+      {showVideos ? <VideoList videos={videos} /> : null}
+      {showStats ? <VideoStats id={videoId} /> : null}
     </div>
   );
 };
