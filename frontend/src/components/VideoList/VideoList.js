@@ -3,7 +3,16 @@ import Video from "../Video/Video";
 
 const VideoList = (props) => {
   const videoList = props.videos.map((video) => {
-    return <Video url={video.thumbnail} title={video.title} key={video.id} />;
+    return (
+      <Video
+        sendId={props.sendId}
+        setCurrent={props.setCurrent}
+        url={video.thumbnail}
+        title={video.title}
+        key={video.id}
+        id={video.id}
+      />
+    );
   });
 
   return (

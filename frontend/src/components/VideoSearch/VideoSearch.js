@@ -6,12 +6,16 @@ import VideoList from "../VideoList/VideoList";
 
 const VideoSearch = () => {
   const [query, setQuery] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [showVideos, setShowVideos] = useState(false);
+
   const [videos, setVideos] = useState([]);
+  const [videoStats, setVideoStats] = useState({});
+
   const [searchById, setSearchById] = useState(false);
   const [videoId, setVideoId] = useState("");
-  const [showStats, setShowStats] = useState(false);
+
+  const [current, setCurrent] = useState("");
+
+  const [loading, setLoading] = useState(false);
 
   const sendQuery = () => {
     setLoading(true);
@@ -20,7 +24,25 @@ const VideoSearch = () => {
       .then((data) => {
         setLoading(false);
         setVideos(data["items"]);
-        setShowVideos(true);
+      });
+  };
+
+  const sendId = (id) => {
+    setLoading(true);
+    fetch(`http://127.0.0.1:8000/comparer/video-id?id=${id}`)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          setCurrent("error");
+          setTimeout(() => {
+            setCurrent(null);
+          }, 3000);
+        }
+      })
+      .then((data) => {
+        setLoading(false);
+        setVideoStats(data);
       });
   };
 
@@ -29,14 +51,16 @@ const VideoSearch = () => {
 
     setVideoId(e.target.value);
     setQuery(e.target.value);
+    setCurrent(null);
   };
 
   const searchButtonClick = () => {
     if (searchById) {
-      setShowVideos(false);
-      setShowStats(true);
+      sendId(videoId);
+      setCurrent("stats");
     } else {
       sendQuery();
+      setCurrent("videos");
     }
   };
 
@@ -47,6 +71,28 @@ const VideoSearch = () => {
       setSearchById(false);
     }
   };
+
+  let currentComponent = null;
+
+  switch (current) {
+    case "videos":
+      currentComponent = (
+        <VideoList videos={videos} sendId={sendId} setCurrent={setCurrent} />
+      );
+      break;
+    case "stats":
+      currentComponent = <VideoStats video={videoStats} />;
+      break;
+    case "error":
+      currentComponent = (
+        <div className="alert alert-danger mt-2" role="alert">
+          Video not found.
+        </div>
+      );
+      break;
+    default:
+      currentComponent = null;
+  }
 
   return (
     <div className="w-100">
@@ -83,9 +129,7 @@ const VideoSearch = () => {
         </label>
       </div>
 
-      {loading ? <Spinner /> : null}
-      {showVideos ? <VideoList videos={videos} /> : null}
-      {showStats ? <VideoStats id={videoId} /> : null}
+      {loading ? <Spinner /> : currentComponent}
     </div>
   );
 };
