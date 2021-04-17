@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 const slugify = require("slugify");
 import VideoStats from "../VideoStats/VideoStats";
 import Spinner from "../Spinner/Spinner";
 import VideoList from "../VideoList/VideoList";
+import { ChartContext } from "../../context/Charts";
 
-const VideoSearch = () => {
+const VideoSearch = (props) => {
   const [query, setQuery] = useState("");
 
   const [videos, setVideos] = useState([]);
   const [videoStats, setVideoStats] = useState({});
+
+  const [views, setViews] = useContext(ChartContext).views;
+  const [likes, setLikes] = useContext(ChartContext).likes;
+  const [dislikes, setDislikes] = useContext(ChartContext).dislikes;
+  const [comments, setComments] = useContext(ChartContext).comments;
 
   const [searchById, setSearchById] = useState(false);
   const [videoId, setVideoId] = useState("");
@@ -41,8 +47,18 @@ const VideoSearch = () => {
         }
       })
       .then((data) => {
+        console.log(data);
         setLoading(false);
+
+        setViews(updateStats(views, data.stats.views, props.id));
+        setLikes(updateStats(likes, data.stats.likes, props.id));
+        setDislikes(updateStats(dislikes, data.stats.dislikes, props.id));
+        setComments(updateStats(comments, data.stats.comments, props.id));
+
         setVideoStats(data);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 
@@ -133,5 +149,18 @@ const VideoSearch = () => {
     </div>
   );
 };
+
+function updateStats(stats, newStat, id) {
+  const newStats = [...stats];
+
+  if (newStats.length === 0) {
+    newStats[id] = newStat;
+    return newStats;
+  }
+
+  newStats.splice(id, 1);
+  newStats.splice(id, 0, newStat);
+  return newStats;
+}
 
 export default VideoSearch;

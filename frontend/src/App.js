@@ -1,12 +1,15 @@
-import React from 'react';
-import Comparer from './components/Comparer/Comparer';
+import React from "react";
+import Comparer from "./components/Comparer/Comparer";
+import { ChartProvider } from "./context/Charts";
 
 const App = () => {
-    return (
-        <div>
-            <Comparer />
-        </div>
-    )
-}
+  return (
+    <div>
+      <ChartProvider>
+        <Comparer />
+      </ChartProvider>
+    </div>
+  );
+};
 
-export default App
+export default App;
