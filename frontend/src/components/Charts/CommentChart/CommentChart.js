@@ -2,13 +2,13 @@ import React, { useContext } from "react";
 import Chart from "../Chart";
 import { ChartContext } from "../../../context/Charts";
 
-const ViewChart = () => {
-  const [views, setViews] = useContext(ChartContext).views;
+const CommentChart = () => {
+  const [comments, setComments] = useContext(ChartContext).comments;
 
-  const viewsDataset = [
+  const commentsDataset = [
     {
-      label: "Views",
-      data: views,
+      label: "Comments",
+      data: comments,
       backgroundColor: ["rgba(255, 159, 64, 0.2)"],
       borderColor: ["rgb(255, 159, 64)"],
       borderWidth: 1,
@@ -17,9 +17,9 @@ const ViewChart = () => {
 
   return (
     <div className="card-body p-2">
-      <Chart datasets={viewsDataset} labels={["Video One", "Video Two"]} />
+      <Chart datasets={commentsDataset} labels={["Video One", "Video Two"]} />
     </div>
   );
 };
 
-export default ViewChart;
+export default CommentChart;
