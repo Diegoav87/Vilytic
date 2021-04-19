@@ -9,8 +9,8 @@ const CommentChart = () => {
     {
       label: "Comments",
       data: comments,
-      backgroundColor: ["rgba(255, 159, 64, 0.2)"],
-      borderColor: ["rgb(255, 159, 64)"],
+      backgroundColor: "rgba(75, 192, 192, 0.2)",
+      borderColor: "rgba(75, 192, 192)",
       borderWidth: 1,
     },
   ];

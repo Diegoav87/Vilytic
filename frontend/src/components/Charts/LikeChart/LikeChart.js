@@ -10,15 +10,15 @@ const LikeChart = () => {
     {
       label: "Likes",
       data: likes,
-      backgroundColor: "rgba(255, 159, 64, 0.2)",
-      borderColor: "rgb(255, 159, 64)",
+      backgroundColor: "rgba(75, 192, 192, 0.2)",
+      borderColor: "rgba(75, 192, 192)",
       borderWidth: 1,
     },
     {
       label: "Dislikes",
       data: dislikes,
-      backgroundColor: "rgba(75, 192, 192, 0.2)",
-      borderColor: "rgba(75, 192, 192)",
+      backgroundColor: "rgba(255, 159, 64, 0.2)",
+      borderColor: "rgb(255, 159, 64)",
       borderWidth: 1,
     },
   ];

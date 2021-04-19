@@ -1,47 +1,53 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-light foi-navbar">
-    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavId">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'index' %}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'comparer:dashboard' %}">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
-                </li>
-            {% else %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
-                </li>
-            {% endif %}
-            <li class="nav-item dropdown">
-                <div class="dropdown-menu" aria-labelledby="pagesMenu">
-                    {% if user.is_authenticated %}
-                        <a class="dropdown-item" href="{% url 'comparer:dashboard' %}">Dashboard</a>
-                        <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a>
-                    {% else %}
-                        <a class="dropdown-item" href="{% url 'accounts:login' %}">Login</a>
-                        <a class="dropdown-item" href="{% url 'accounts:register' %}">Register</a>
-                    {% endif %}
+<!-- ========================= header start ========================= -->
+<header class="header">
+    <div class="navbar-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="{% url 'index' %}">
+                            <img src="{% static 'images/logo.svg' %}" alt="Logo">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                            <ul id="nav" class="navbar-nav ml-auto">
+                                {% if user.is_authenticated %}
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="{% url 'index' %}">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="{% url 'comparer:dashboard' %}">Compare</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="{% url 'accounts:logout' %}">Logout</a>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="{% url 'index' %}">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="{% url 'accounts:register' %}">Sign Up</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="{% url 'accounts:login' %}">Log In</a>
+                                    </li>
+                                {% endif %}
+                            
+                            </ul>
+                        </div> <!-- navbar collapse -->
+                    </nav> <!-- navbar -->
                 </div>
-            </li>
-        </ul>
-        
-        {% if user.is_authenticated == False %}
-            <ul class="navbar-nav mt-2 mt-lg-0">
-                <li class="nav-item mr-2 mb-3 mb-lg-0">
-                    <a class="btn btn-secondary" href="{% url 'accounts:register' %}">Sign up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-secondary" href="{% url 'accounts:login' %}">Login</a>
-                </li>
-            </ul>
-        {% endif %}
-    </div>
-</nav>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div> <!-- navbar area -->
+
+</header>
+<!-- ========================= header end ========================= -->

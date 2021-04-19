@@ -30,38 +30,53 @@ const Comparer = () => {
   return (
     <div>
       <div className="d-flex w-100 ml-auto mr-auto mb-4 mt-4">
-        <VideoSearch id={0} />
-        <div>
+        <ul className="list-group w-100 bg-white shadow-sm">
+          <li className="list-group-item bg-light">
+            <h5 className="text-primary fw-bold">Video One</h5>
+          </li>
+          <li className="list-group-item p-4">
+            <VideoSearch id={0} />
+          </li>
+        </ul>
+
+        <div className="mt-auto mb-auto">
           <h3 className="ml-4 mr-4">VS</h3>
         </div>
-        <VideoSearch id={1} />
+        <ul className="list-group w-100 bg-white shadow-sm">
+          <li className="list-group-item bg-light">
+            <h5 className="text-primary fw-bold">Video Two</h5>
+          </li>
+          <li className="list-group-item p-4">
+            <VideoSearch id={1} />
+          </li>
+        </ul>
       </div>
-      <div className="card mt-5 mb-5">
+      <div className="card mt-5 mb-5 shadow-sm">
         <div className="card-header">
           <ul className="nav nav-tabs card-header-tabs">
             <li onClick={() => chartLinkClick("views")} className="nav-item">
               <button
-                className={
-                  currentChart === "views" ? "nav-link active" : "nav-link"
-                }
+                className={`nav-link text-primary ${
+                  currentChart === "views" ? "active" : ""
+                }`}
               >
                 Views
               </button>
             </li>
             <li onClick={() => chartLinkClick("likes")} className="nav-item">
               <button
-                className={
-                  currentChart === "likes" ? "nav-link active" : "nav-link"
-                }
+                className={`nav-link text-primary ${
+                  currentChart === "likes" ? "active" : ""
+                }`}
               >
                 Likes and Dislikes
               </button>
             </li>
             <li onClick={() => chartLinkClick("comments")} className="nav-item">
               <button
-                className={
-                  currentChart === "comments" ? "nav-link active" : "nav-link"
-                }
+                className={`nav-link text-primary ${
+                  currentChart === "comments" ? "active" : ""
+                }`}
               >
                 Comments
               </button>

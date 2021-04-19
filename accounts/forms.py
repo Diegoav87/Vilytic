@@ -9,7 +9,11 @@ class UserCreateForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': "Username"})
-        self.fields['email'].widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': "Email"})
-        self.fields['password1'].widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': "Password"})
-        self.fields['password2'].widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': "Confirm Password"})
+        self.fields['username'].widget.attrs.update(
+            {'class': 'form-control', 'placeholder': "Username"})
+        self.fields['email'].widget.attrs.update(
+            {'class': 'form-control', 'placeholder': "Email"})
+        self.fields['password1'].widget.attrs.update(
+            {'class': 'form-control', 'placeholder': "Password"})
+        self.fields['password2'].widget.attrs.update(
+            {'class': 'form-control', 'placeholder': "Confirm Password"})

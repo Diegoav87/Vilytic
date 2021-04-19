@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Nunito";
+  font-weight: normal;
+  font-style: normal;
+  color: #6b6f92;
+  overflow-x: hidden;
+}
+
+.login-container {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}

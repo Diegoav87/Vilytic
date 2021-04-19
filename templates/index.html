@@ -3,36 +3,279 @@
 
 {% block links %}
 
-<link rel="stylesheet" href="{% static 'css/index.css' %}">
-
+<link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
 
 {% endblock %}
 
 {% block content %}
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
 
-<header class="foi-header landing-header">
-    <div class="container">
-        {% include 'navbar.html' %}
-        <div class="header-content">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1>Compare the stats of any youtube video.</h1>
-                    <p class="text-dark">He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement.</p>
-                    <a href="{% url 'comparer:dashboard' %}" class="btn btn-primary mb-4">Start Comparing</a>
-                </div>
-                <div class="col-md-6">
-                    <img src="{% static 'images/app_1.png' %}" alt="app" width="388px" class="img-fluid">
+        <!-- ========================= preloader start ========================= -->
+            <div class="preloader">
+                <div class="loader">
+                    <div class="ytp-spinner">
+                        <div class="ytp-spinner-container">
+                            <div class="ytp-spinner-rotator">
+                                <div class="ytp-spinner-left">
+                                    <div class="ytp-spinner-circle"></div>
+                                </div>
+                                <div class="ytp-spinner-right">
+                                    <div class="ytp-spinner-circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</header>
+        <!-- preloader end -->
 
-{% include 'footer.html' %}
+        {% include 'navbar.html' %}
 
-<script src="{% static 'js/jquery.min.js' %}"></script>
-<script src="{% static 'js/popper.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <!-- ========================= slider-section start ========================= -->
+        <section id="home" class="hero-section img-bg" style="background-image: url({% static 'images/hero-bg.svg' %})">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-7 col-lg-6">
+                        <div class="hero-content-wrapper">
+                            <h1 class="wow fadeInDown" data-wow-delay=".4s" data-wow-duration="1.3s">Compare and Analyze Youtube Video Data</h1>
+                            <p class="wow fadeInLeft" data-wow-delay=".6s" data-wow-duration="1.3s">Choose a video you like and compare it to any video on youtube. See statistics for both of them side by side.</p>
+                            <a href="#features" class="theme-btn wow fadeInUp" data-wow-delay=".8s" data-wow-duration="1.3s">Start Comparing</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-6">
+                        <div class="hero-img">
+                            <img  class="wow fadeInRight" data-wow-delay=".4s" data-wow-duration="1.3s" src="{% static 'images/hero-img.png' %}" alt="hero-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========================= slider-section end ========================= -->
+
+        
+
+        <section id="process"></section>
+
+        <!-- ========================= why-use-section start ========================= -->
+        <section id="why-use" class="why-use-section pt-150">
+            <img src="assets/img/why-use/why-use-shape.png" alt="" class="shape why-use-shape">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="why-use-img wow fadeInLeft" data-wow-delay=".5s" data-wow-duration="1.3s">
+                            <img src="{% static 'images/why-use-img.jpg' %}" alt="Data">
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 faq-column">
+                        <div class="section-title mb-30">
+                            <h2 class="mb-15 wow fadeInUp" data-wow-delay=".4s">Compare and Analyze</h2>
+                            <p class="mb-50 wow fadeInUp" data-wow-delay=".6s">Compare data from any youtube video you want. You can see statistics such as views likes, comments, etc.</p>
+                        </div>
+                        <div class="why-use-faq">
+                            <div class="accordion" id="accordionExample">
+                                <div class="faq-item mb-15 wow fadeInUp" data-wow-delay=".2s">
+                                    <div class="faq-header" id="faq-heading-1">
+                                        <button class="faq-btn collapsed" type="button" data-toggle="collapse" data-target="#faq-1"
+                                            aria-expanded="true" aria-controls="faq-1">
+                                            <i class="lni lni-search gradient-1"></i> <span>Analyze Statistics</span>
+                                        </button>
+                                    </div>
+
+                                    <div id="faq-1" class="collapse" aria-labelledby="faq-heading-1" data-parent="#accordionExample">
+                                        <div class="faq-body">
+                                            <p>See the statistics for your favorite youtube videos without downloading chrome extensions. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="faq-item mb-15 wow fadeInUp" data-wow-delay=".4s">
+                                    <div class="faq-header" id="faq-heading-2">
+                                        <button class="faq-btn collapsed" type="button" data-toggle="collapse" data-target="#faq-2"
+                                            aria-expanded="true" aria-controls="faq-2">
+                                            <i class="lni lni-stats-up gradient-2"></i> <span>Detailed Analytics</span>
+                                        </button>
+                                    </div>
+
+                                    <div id="faq-2" class="collapse" aria-labelledby="faq-heading-2" data-parent="#accordionExample">
+                                        <div class="faq-body">
+                                            <p>See the Analytics for each video and how each of them performed compared to the other.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="faq-item wow fadeInUp" data-wow-delay=".6s">
+                                    <div class="faq-header" id="faq-heading-3">
+                                        <button class="faq-btn collapsed" type="button" data-toggle="collapse" data-target="#faq-3"
+                                            aria-expanded="true" aria-controls="faq-3">
+                                            <i class="lni lni-graph gradient-3"></i> <span>Data Visualization</span>
+                                        </button>
+                                    </div>
+
+                                    <div id="faq-3" class="collapse" aria-labelledby="faq-heading-3" data-parent="#accordionExample">
+                                        <div class="faq-body">
+                                            <p>See your data in graphs to compare both videos easily.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========================= why-use-section end ========================= -->
+
+
+       
+
+        <!-- ========================= team-section start ========================= -->
+        <section id="team" class="team-section pt-150 pb-120">
+
+        </section>
+        <!-- ========================= team-section end ========================= -->
+
+        <!-- ========================= testimonial-section start ========================= -->
+        <section class="testimonial-section pt-100 pb-100 gray-bg">
+
+        <div class="container text-center">
+            <h1>You are using free lite version of the template</h1>
+            <p>Please, purchase full version of the template to get all sections, elements and permission to remove footer credits</p></br>
+            <a href="https://rebrand.ly/softland-ud" rel="nofollow" class="theme-btn wow fadeInUp" data-wow-delay=".8s" data-wow-duration="1.3s">Purchase Now</a>
+            </div>
+
+        </section>
+        <!-- ========================= testimonial-section end ========================= -->
+
+        <!-- ========================= faq-section start ========================= -->
+        <section class="faq-section pt-150">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="faq-img wow fadeInLeft" data-wow-delay=".5s">
+                            <img src="{% static 'images/faq-img.svg' %}" alt="FAQ">
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="section-title mb-30">
+                            <span class="wow fadeInDown" data-wow-delay=".2s">FAQ</span>
+                            <h2 class="mb-15 wow fadeInUp" data-wow-delay=".4s">Frequently Asked Questions</h2>
+                            
+                        </div>
+                        <div class="process-faq">
+                            <div class="accordion" id="accordionExample3">
+                                <div class="faq-item mb-15 wow fadeInUp" data-wow-delay=".2s">
+                                    <div class="faq-header" id="faq-heading-7">
+                                        <button class="faq-btn collapsed" type="button" data-toggle="collapse" data-target="#faq-7"
+                                            aria-expanded="true" aria-controls="faq-7">
+                                            <span class="pt-0">Can I search for any youtube video?</span>
+                                        </button>
+                                    </div>
+
+                                    <div id="faq-7" class="collapse show" aria-labelledby="faq-heading-7" data-parent="#accordionExample3">
+                                        <div class="faq-body">
+                                            <p>Yes you can search for any youtube on video that is not private or restricted.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="faq-item mb-15 wow fadeInUp" data-wow-delay=".4s">
+                                    <div class="faq-header" id="faq-heading-8">
+                                        <button class="faq-btn collapsed" type="button" data-toggle="collapse" data-target="#faq-8"
+                                            aria-expanded="true" aria-controls="faq-8">
+                                            <span class="pt-0">How do I search for a video?</span>
+                                        </button>
+                                    </div>
+
+                                    <div id="faq-8" class="collapse" aria-labelledby="faq-heading-8" data-parent="#accordionExample3">
+                                        <div class="faq-body">
+                                            <p>You can search with keywords using the search bar, or you can get a video directly with the video id.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="faq-item mb-15 wow fadeInUp" data-wow-delay=".6s">
+                                    <div class="faq-header" id="faq-heading-9">
+                                        <button class="faq-btn collapsed" type="button" data-toggle="collapse" data-target="#faq-9"
+                                            aria-expanded="true" aria-controls="faq-9">
+                                            <span class="pt-0">Is there a limit to the searches I can make?</span>
+                                        </button>
+                                    </div>
+
+                                    <div id="faq-9" class="collapse" aria-labelledby="faq-heading-9" data-parent="#accordionExample3">
+                                        <div class="faq-body">
+                                            <p>Free users can make up to 10 video searches per day. If you want to get more you can always updgrade to the premium package.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========================= faq-section end ========================= -->
+
+        <!-- ========================= blog-section start ========================= -->
+        <section id="blog" class="blog-section pt-150">
+
+        </section>
+        <!-- ========================= blog-section end ========================= -->
+
+        <!-- ========================= video-section start ========================= -->
+        <section class="video-section pt-120 pb-50">
+        </section>
+        <!-- ========================= video-section end ========================= -->
+
+        <!-- ========================= subscribe-section start ========================= -->
+        <section id="subscribe" class="subscribe-section gray-bg pt-100">
+            <div class="container">
+                <div class="subscribe-wrapper pt-70 pb-70">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-8 col-md-10 mx-auto">
+                            <div class="section-title text-center mb-30">
+                                <span class="text-white wow fadeInDown" data-wow-delay=".2s">Newsletter</span>
+                                <h2 class="text-white mb-15 wow fadeInLeft" data-wow-delay=".4s">Subscribe Our Newsletter</h2>
+                                <p class="text-white wow fadeInLeUp" data-wow-delay=".6s">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-10 mx-auto">
+                            <form action="#" class="subscribe-form wow fadeInUp" data-wow-delay=".8s">
+                                <input type="email" name="subs-input" id="subs-input" placeholder="Enter your email">
+                                <button type="submit" class="theme-btn">SUBSCRIBE</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========================= subscribe-section end ========================= -->
+
+        <!-- ========================= footer start ========================= -->
+        <footer class="footer pt-150 gray-bg">
+            <img src="assets/img/shape/footer-bg.svg" alt="" class="footer-bg">
+            <div class="container">
+                
+                <div class="copyright-area text-center">
+                    <p class="mb-0">Designed and Developed by <a href="https://uideck.com" rel="nofollow" target="_blank">UIdeck</a></p>
+                </div>
+            </div>
+        </footer>
+        <!-- ========================= footer end ========================= -->
+
+
+        <!-- ========================= scroll-top ========================= -->
+        <a href="#" class="scroll-top">
+            <i class="lni lni-chevron-up"></i>
+        </a>
+
+		<!-- ========================= JS here ========================= -->
+        <script src="{% static 'js/bootstrap.bundle-5.0.0.alpha-1-min.js' %}"></script>
+		<script src="{% static 'js/count-up.min.js' %}"></script>
+        <script src="{% static 'js/wow.min.js' %}"></script>
+		<script src="{% static 'js/main.js' %}"></script>
 
 
 

@@ -12,10 +12,20 @@ const VideoStats = (props) => {
             </div>
           </li>
           <li className="list-group-item">
-            <p>Views - {props.video.stats.views}</p>
-            <p>Likes- {props.video.stats.likes}</p>
-            <p>Dislikes - {props.video.stats.dislikes}</p>
-            <p>Comments - {props.video.stats.comments}</p>
+            <div className="d-flex w-100 justify-content-evenly p-2">
+              <p>
+                <i class="fas fa-eye"></i> {props.video.stats.views}
+              </p>
+              <p>
+                <i class="fas fa-thumbs-up"></i> {props.video.stats.likes}
+              </p>
+              <p>
+                <i class="fas fa-thumbs-down"></i> {props.video.stats.dislikes}
+              </p>
+              <p>
+                <i class="fas fa-comments"></i> {props.video.stats.comments}
+              </p>
+            </div>
           </li>
         </ul>
       ) : null}

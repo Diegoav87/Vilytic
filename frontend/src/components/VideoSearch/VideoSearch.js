@@ -117,7 +117,7 @@ const VideoSearch = (props) => {
           <input
             onChange={queryChange}
             type="text"
-            className="form-control bg-white border-0 "
+            className="form-control bg-light border-0 "
             placeholder="Search for video..."
             aria-label="Search"
           />
