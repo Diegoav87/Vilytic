@@ -39,9 +39,6 @@ const Comparer = () => {
           </li>
         </ul>
 
-        <div className="mt-auto mb-auto">
-          <h3 className="ml-4 mr-4">VS</h3>
-        </div>
         <ul className="list-group w-100 bg-white shadow-sm">
           <li className="list-group-item bg-light">
             <h5 className="text-primary fw-bold">Video Two</h5>

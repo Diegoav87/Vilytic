@@ -12,7 +12,9 @@
 
 
 
-{% include 'navbar.html' %}
+    {% include 'navbar.html' %}
+
+
 
 
 <main class="page-auth login-container" style="background-image: url({% static 'images/hero-bg.svg' %})">
@@ -40,7 +42,7 @@
                                   <label for="password">Password <sup>*</sup></label>
                                   <input type="password" class="form-control" id="password" placeholder="Password *" name="password">
                               </div>
-                              <button class="btn btn-primary mt-4" type="submit">Submit</button>
+                              <button class="theme-btn mt-4 w-100" type="submit">Submit</button>
                           </form>
 
                           <p class="mb-0 mt-4">
@@ -48,7 +50,7 @@
                           </p>
                       </div>
                       <div class="col-md-6 d-flex align-items-center">
-                          <img src="{% static 'images/login.png' %}" alt="login" class="img-fluid">
+                          <img src="{% static 'images/login.svg' %}" alt="login" class="img-fluid">
                       </div>
                   </div>
               </section>

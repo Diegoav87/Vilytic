@@ -12,12 +12,12 @@
 {% include 'navbar.html' %}
 
 <main class="page-auth register-container" style="background-image: url({% static 'images/hero-bg.svg' %})">
-  <div class="container">
+  <div>
       <div class="row">
           <div class="col-lg-10 offset-lg-1">
               <section class="auth-wrapper">
                   <div class="row">
-                      <div class="col-md-6 mb-4 mb-md-0 gray-bg p-4 shadow-lg">
+                      <div class="col-md-6 mb-4 mb-md-0 gray-bg p-5 shadow-lg">
                           <h2 class="auth-section-title">Create account</h2>
                           <p class="auth-section-subtitle">Create your account to continue.</p>
                           <form method="POST">
@@ -38,14 +38,14 @@
                                   <label for="confirmPassword">Confirm Password <sup>*</sup></label>
                                   {{form.password2}}
                               </div>
-                              <button class="btn btn-primary mt-4" type="submit">Create account</button>
+                              <button class="theme-btn mt-4 w-100" type="submit">Create account</button>
                           </form>
                           <p class="mb-0 mt-4">
-                              <a href="{% url 'accounts:login' %}" class="text-dark font-weight-bold">Already have an acocunt? Sign in</a>
+                              <p class="text-dark">Already have an account? <a href="{% url 'accounts:login' %}">Log In</a></p>
                           </p>
                       </div>
                       <div class="col-md-6 d-flex align-items-center">
-                          <img src="{% static 'images/Register.png' %}" alt="login" class="img-fluid">
+                          <img src="{% static 'images/register.svg' %}" alt="register" class="img-fluid">
                       </div>
                   </div>
               </section>
