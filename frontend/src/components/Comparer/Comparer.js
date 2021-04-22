@@ -29,31 +29,16 @@ const Comparer = () => {
 
   return (
     <div>
-      <div className="d-flex w-100 ml-auto mr-auto mb-4 mt-4">
-        <ul className="list-group w-100 bg-white shadow-sm">
-          <li className="list-group-item bg-light">
-            <h5 className="text-primary fw-bold">Video One</h5>
-          </li>
-          <li className="list-group-item p-4">
-            <VideoSearch id={0} />
-          </li>
-        </ul>
-
-        <ul className="list-group w-100 bg-white shadow-sm">
-          <li className="list-group-item bg-light">
-            <h5 className="text-primary fw-bold">Video Two</h5>
-          </li>
-          <li className="list-group-item p-4">
-            <VideoSearch id={1} />
-          </li>
-        </ul>
+      <div className="searches-container w-100 ml-auto mr-auto mb-4 mt-4">
+        <VideoSearch id={0} number="Video One" />
+        <VideoSearch id={1} number="Video Two" />
       </div>
-      <div className="card mt-5 mb-5 shadow-sm">
-        <div className="card-header">
+      <div className="card mt-5 mb-5 shadow-sm chart-container">
+        <div className="card-header purple-color">
           <ul className="nav nav-tabs card-header-tabs">
             <li onClick={() => chartLinkClick("views")} className="nav-item">
               <button
-                className={`nav-link text-primary ${
+                className={`nav-link text-white fw-bold chart-link ${
                   currentChart === "views" ? "active" : ""
                 }`}
               >
@@ -62,7 +47,7 @@ const Comparer = () => {
             </li>
             <li onClick={() => chartLinkClick("likes")} className="nav-item">
               <button
-                className={`nav-link text-primary ${
+                className={`nav-link text-white fw-bold chart-link ${
                   currentChart === "likes" ? "active" : ""
                 }`}
               >
@@ -71,7 +56,7 @@ const Comparer = () => {
             </li>
             <li onClick={() => chartLinkClick("comments")} className="nav-item">
               <button
-                className={`nav-link text-primary ${
+                className={`nav-link text-white fw-bold chart-link ${
                   currentChart === "comments" ? "active" : ""
                 }`}
               >

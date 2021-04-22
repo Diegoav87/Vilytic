@@ -9,15 +9,17 @@
 {% endblock %}
 
 {% block content %}
-{% include 'navbar.html' %}
+<div style="background-color: #6240C8;" class="dash-nav">
+    {% include 'navbar.html' %}
+</div>
 
-<main class="page-auth register-container" style="background-image: url({% static 'images/hero-bg.svg' %})">
+<main class="page-auth register-container">
   <div>
       <div class="row">
           <div class="col-lg-10 offset-lg-1">
               <section class="auth-wrapper">
                   <div class="row">
-                      <div class="col-md-6 mb-4 mb-md-0 gray-bg p-5 shadow-lg">
+                      <div class="col-md-6 mb-4 mb-md-0 gray-bg p-5 shadow">
                           <h2 class="auth-section-title">Create account</h2>
                           <p class="auth-section-subtitle">Create your account to continue.</p>
                           <form method="POST">
@@ -55,8 +57,6 @@
 </main>
 {% include 'footer.html' %}
 
-  <script src="{% static 'js/jquery.min.js' %}"></script>
-  <script src="{% static 'js/popper.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle-5.0.0.alpha-1-min.js' %}"></script>
 
 {% endblock %}

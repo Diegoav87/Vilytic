@@ -10,9 +10,9 @@ const Video = (props) => {
     <li
       onClick={videoClick}
       style={{ cursor: "pointer" }}
-      className="list-group-item p-4"
+      className="list-group-item grid p-4"
     >
-      <img className="m-auto" src={props.url} />
+      <img className="m-auto video-img" src={props.url} />
       <div className="mt-4 mb-4">
         <h5>{props.title}</h5>
       </div>

@@ -111,42 +111,48 @@ const VideoSearch = (props) => {
   }
 
   return (
-    <div className="w-100">
-      <form className="d-none d-sm-inline-block form-inline mr-auto  navbar-search w-100">
-        <div className="input-group">
-          <input
-            onChange={queryChange}
-            type="text"
-            className="form-control bg-light border-0 "
-            placeholder="Search for video..."
-            aria-label="Search"
-          />
-          <div className="input-group-append">
-            <button
-              onClick={searchButtonClick}
-              className="btn btn-primary"
-              type="button"
-            >
-              <i className="fas fa-search fa-sm"></i>
-            </button>
+    <ul className="search-ul">
+      <li className="list-group-item video-header-item">
+        <h5 className="text-white fw-bold">{props.number}</h5>
+      </li>
+      <li className="list-group-item p-4">
+        <div className="w-100">
+          <form className="d-none d-sm-inline-block form-inline mr-auto  navbar-search w-100">
+            <div className="input-group">
+              <input
+                onChange={queryChange}
+                type="text"
+                className="form-control bg-light border-0 "
+                placeholder="Search for video..."
+                aria-label="Search"
+              />
+              <div className="input-group-append">
+                <button
+                  onClick={searchButtonClick}
+                  className="btn search-btn"
+                  type="button"
+                >
+                  <i className="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+          <div className="form-check mt-2 ml-2">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+              onChange={checkboxChange}
+            />
+            <label className="form-check-label" htmlFor="flexCheckDefault">
+              Search by video id
+            </label>
           </div>
+          <div className="grid">{loading ? <Spinner /> : currentComponent}</div>
         </div>
-      </form>
-      <div className="form-check mt-2 ml-2">
-        <input
-          className="form-check-input"
-          type="checkbox"
-          value=""
-          id="flexCheckDefault"
-          onChange={checkboxChange}
-        />
-        <label className="form-check-label" htmlFor="flexCheckDefault">
-          Search by video id
-        </label>
-      </div>
-
-      {loading ? <Spinner /> : currentComponent}
-    </div>
+      </li>
+    </ul>
   );
 };
 

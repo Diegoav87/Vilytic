@@ -45,7 +45,7 @@
                         <div class="hero-content-wrapper">
                             <h1 class="wow fadeInDown" data-wow-delay=".4s" data-wow-duration="1.3s">Compare and Analyze Youtube Video Data</h1>
                             <p class="wow fadeInLeft" data-wow-delay=".6s" data-wow-duration="1.3s">Choose a video you like and compare it to any video on youtube. See statistics for both of them side by side.</p>
-                            <a href="#features" class="theme-btn wow fadeInUp" data-wow-delay=".8s" data-wow-duration="1.3s">Start Comparing</a>
+                            <a href="{% url 'comparer:dashboard' %}" class="theme-btn wow fadeInUp" data-wow-delay=".8s" data-wow-duration="1.3s">Start Comparing</a>
                         </div>
                     </div>
                     <div class="col-xl-5 col-lg-6">
@@ -103,7 +103,7 @@
 
                                     <div id="faq-2" class="collapse" aria-labelledby="faq-heading-2" data-parent="#accordionExample">
                                         <div class="faq-body">
-                                            <p>See the Analytics for each video and how each of them performed compared to the other.</p>
+                                            <p>See the analytics for any video and how they performed.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
 
                                     <div id="faq-3" class="collapse" aria-labelledby="faq-heading-3" data-parent="#accordionExample">
                                         <div class="faq-body">
-                                            <p>See your data in graphs to compare both videos easily.</p>
+                                            <p>Analyze the data using the graphs that are made for the videos.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -142,9 +142,9 @@
         <section class="testimonial-section pt-100 pb-100 gray-bg">
 
         <div class="container text-center">
-            <h1>Sign up to start comparing youtube videos</h1>
-            <p>You can also buy a premium membership which will give many more benefits. See the pricing here.</p></br>
-            <a href="https://rebrand.ly/softland-ud" rel="nofollow" class="theme-btn wow fadeInUp" data-wow-delay=".8s" data-wow-duration="1.3s">Purchase Now</a>
+            <h1>Sign up and start comparing!</h1>
+            <p>Register in order to get access to the youtube video comparer.</p></br>
+            <a href="{% url 'accounts:register' %}" rel="nofollow" class="theme-btn wow fadeInUp" data-wow-delay=".8s" data-wow-duration="1.3s">Get Started</a>
             </div>
 
         </section>
@@ -199,13 +199,13 @@
                                     <div class="faq-header" id="faq-heading-9">
                                         <button class="faq-btn collapsed" type="button" data-toggle="collapse" data-target="#faq-9"
                                             aria-expanded="true" aria-controls="faq-9">
-                                            <span class="pt-0">Is there a limit to the searches I can make?</span>
+                                            <span class="pt-0">How many videos can I compare at a time?</span>
                                         </button>
                                     </div>
 
                                     <div id="faq-9" class="collapse" aria-labelledby="faq-heading-9" data-parent="#accordionExample3">
                                         <div class="faq-body">
-                                            <p>Free users can make up to 10 video searches per day. If you want to get more you can always updgrade to the premium package.</p>
+                                            <p>You can compare two youtube video side by side.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -261,7 +261,7 @@
             <div class="container">
                 
                 <div class="copyright-area text-center">
-                    <p class="mb-0">This website was designed using by <a href="https://uideck.com" rel="nofollow" target="_blank">UIdeck</a></p>
+                    <p class="mb-0">This website was designed by <a href="https://uideck.com" rel="nofollow" target="_blank">UIdeck</a></p>
                     <p><span>Copyright &copy; Vilytic 2021</span></p>
                 </div>
             </div>
