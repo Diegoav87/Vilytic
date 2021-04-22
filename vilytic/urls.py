@@ -22,4 +22,5 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('accounts/', include('accounts.urls'), name="accounts"),
     path('comparer/', include('comparer.urls'), name="comparer"),
+    path('contact/', views.contact, name="contact"),
 ]

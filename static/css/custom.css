@@ -57,6 +57,28 @@
   padding: 20px;
 }
 
+.submit-btn {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 75%;
+}
+
+.subscribe-form label {
+  color: white;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: left;
+  font-size: 1.125;
+  width: 75%;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+textarea::placeholder {
+  padding-top: 10px;
+}
+
 @media (max-width: 1024px) {
   .searches-container {
     display: block;
@@ -92,5 +114,12 @@
   .video-img {
     max-width: 320px;
     max-height: 180px;
+  }
+}
+
+@media (max-width: 767px) {
+  .submit-btn,
+  .subscribe-form label {
+    width: 100%;
   }
 }

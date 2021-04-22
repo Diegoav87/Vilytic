@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container text-center mt-5">
+    <h1>¡Thank you for contacting {{name}}!</h1>
+    <p>Your message was sent successfully. I will try to get back to you as soon as possible.</p>
+    <a href="{% url 'index' %}"><button class="btn btn-primary mt-2">Home</button></a>
+</div>
+
+{% endblock %}
