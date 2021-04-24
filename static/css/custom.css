@@ -89,8 +89,8 @@ textarea::placeholder {
   max-width: 100%;
 }
 
-#home {
-  background-image: url("{% static 'images/hero-bg.svg' %}");
+#hero {
+  background-image: url("/static/images/hero-img.svg");
 }
 
 @media (max-width: 1024px) {
