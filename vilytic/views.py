@@ -5,6 +5,7 @@ from django.conf import settings
 
 
 def index(request):
+    print(request)
     return render(request, 'index.html')
 
 

@@ -89,10 +89,6 @@ textarea::placeholder {
   max-width: 100%;
 }
 
-#hero {
-  background-image: url("/static/images/hero-bg.svg");
-}
-
 @media (max-width: 1024px) {
   .searches-container {
     display: block;
