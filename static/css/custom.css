@@ -90,7 +90,7 @@ textarea::placeholder {
 }
 
 #hero {
-  background-image: url("/static/images/hero-img.svg");
+  background-image: url("/static/images/hero-bg.svg");
 }
 
 @media (max-width: 1024px) {
