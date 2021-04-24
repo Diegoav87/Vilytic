@@ -1,0 +1,1 @@
+web: gunicorn vilytic.wsgi --log-file -
