@@ -46,6 +46,13 @@ INSTALLED_APPS = [
     'comparer',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_RATES': {
+        'video_search': '8/day',
+        'video_id': '8/day'
+    }
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -125,6 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')

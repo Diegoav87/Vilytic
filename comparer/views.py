@@ -6,6 +6,9 @@ from rest_framework.response import Response
 from slugify import slugify
 import requests
 from rest_framework import status
+from rest_framework.decorators import throttle_classes
+from .throttles import VideoIdTrottle, VideoSearchTrottle
+
 
 # Create your views here.
 
@@ -17,7 +20,9 @@ def dashboard(request):
 # API
 
 
+@login_required
 @api_view(["GET"])
+@throttle_classes([VideoSearchTrottle])
 def video_search(request):
     search_url = 'https://www.googleapis.com/youtube/v3/search'
     raw_query = request.GET.get('query').split('-')
@@ -48,7 +53,9 @@ def video_search(request):
     return Response(data)
 
 
+@login_required
 @api_view(['GET'])
+@throttle_classes([VideoIdTrottle])
 def video_id(request):
     video_id = request.GET.get('id')
     url = 'https://www.googleapis.com/youtube/v3/videos'

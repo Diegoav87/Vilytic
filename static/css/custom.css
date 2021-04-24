@@ -79,6 +79,16 @@ textarea::placeholder {
   padding-top: 10px;
 }
 
+.hero-pic {
+  -webkit-box-shadow: 0px 5px 20px -5px #545454;
+  box-shadow: 0px 5px 20px -5px #545454;
+}
+
+.video-c {
+  max-height: 100%;
+  max-width: 100%;
+}
+
 @media (max-width: 1024px) {
   .searches-container {
     display: block;

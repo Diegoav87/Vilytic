@@ -4,6 +4,7 @@ import VideoStats from "../VideoStats/VideoStats";
 import Spinner from "../Spinner/Spinner";
 import VideoList from "../VideoList/VideoList";
 import { ChartContext } from "../../context/Charts";
+import { errorHandler } from "../../utils/errorHandler";
 
 const VideoSearch = (props) => {
   const [query, setQuery] = useState("");
@@ -23,14 +24,26 @@ const VideoSearch = (props) => {
 
   const [loading, setLoading] = useState(false);
 
+  const [error, setError] = useState("");
+
   const sendQuery = () => {
     setLoading(true);
     fetch(`http://127.0.0.1:8000/comparer/video-search?query=${slugify(query)}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else if (res.status === 429) {
+          errorHandler(setError, setCurrent, 429);
+        } else {
+          errorHandler(setError, setCurrent, "");
+        }
+      })
       .then((data) => {
         setLoading(false);
+        console.log(data);
         setVideos(data["items"]);
-      });
+      })
+      .catch((err) => console.log(err));
   };
 
   const sendId = (id) => {
@@ -39,11 +52,12 @@ const VideoSearch = (props) => {
       .then((res) => {
         if (res.ok) {
           return res.json();
+        } else if (res.status === 404) {
+          errorHandler(setError, setCurrent, 404);
+        } else if (res.status === 429) {
+          errorHandler(setError, setCurrent, 429);
         } else {
-          setCurrent("error");
-          setTimeout(() => {
-            setCurrent(null);
-          }, 3000);
+          errorHandler(setError, setCurrent, "");
         }
       })
       .then((data) => {
@@ -102,7 +116,7 @@ const VideoSearch = (props) => {
     case "error":
       currentComponent = (
         <div className="alert alert-danger mt-2" role="alert">
-          Video not found.
+          {error}
         </div>
       );
       break;
