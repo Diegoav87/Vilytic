@@ -29,7 +29,11 @@ const VideoSearch = (props) => {
 
   const sendQuery = () => {
     setLoading(true);
-    fetch(`${configUrl.url}comparer/video-search?query=${slugify(query)}`)
+    fetch(
+      `https://vilytic.herokuapp.com/comparer/video-search?query=${slugify(
+        query
+      )}`
+    )
       .then((res) => {
         if (res.ok) {
           return res.json();
@@ -49,7 +53,7 @@ const VideoSearch = (props) => {
 
   const sendId = (id) => {
     setLoading(true);
-    fetch(`${configUrl.url}comparer/video-id?id=${id}`)
+    fetch(`https://vilytic.herokuapp.com/comparer/video-id?id=${id}`)
       .then((res) => {
         if (res.ok) {
           return res.json();
