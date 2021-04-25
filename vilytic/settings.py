@@ -157,6 +157,8 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 
+SECURE_SSL_REDIRECT = True
+
 CORS_ORIGIN_WHITELIST = [
     "http://127.0.0.1:8000",
     "https://vilytic.herokuapp.com",
