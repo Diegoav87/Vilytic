@@ -5,6 +5,7 @@ import Spinner from "../Spinner/Spinner";
 import VideoList from "../VideoList/VideoList";
 import { ChartContext } from "../../context/Charts";
 import { errorHandler } from "../../utils/errorHandler";
+import { configUrl } from "../../Constants";
 
 const VideoSearch = (props) => {
   const [query, setQuery] = useState("");
@@ -28,7 +29,7 @@ const VideoSearch = (props) => {
 
   const sendQuery = () => {
     setLoading(true);
-    fetch(`http://127.0.0.1:8000/comparer/video-search?query=${slugify(query)}`)
+    fetch(`${configUrl.url}comparer/video-search?query=${slugify(query)}`)
       .then((res) => {
         if (res.ok) {
           return res.json();
@@ -48,7 +49,7 @@ const VideoSearch = (props) => {
 
   const sendId = (id) => {
     setLoading(true);
-    fetch(`http://127.0.0.1:8000/comparer/video-id?id=${id}`)
+    fetch(`${configUrl.url}comparer/video-id?id=${id}`)
       .then((res) => {
         if (res.ok) {
           return res.json();
