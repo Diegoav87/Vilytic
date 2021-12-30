@@ -31,7 +31,7 @@ const VideoSearch = (props) => {
     setLoading(true);
 
     axiosInstance
-      .get(`https://vilytic.herokuapp.com/video-search?query=${slugify(
+      .get(`https://vilytic.herokuapp.com/comparer/video-search?query=${slugify(
         query
       )}`)
       .then(res => {
