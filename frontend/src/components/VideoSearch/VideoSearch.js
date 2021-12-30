@@ -31,7 +31,7 @@ const VideoSearch = (props) => {
     setLoading(true);
 
     axiosInstance
-      .get(`comparer/video-search?query=${slugify(
+      .get(`https://vilytic.herokuapp.com/video-search?query=${slugify(
         query
       )}`)
       .then(res => {
@@ -49,7 +49,7 @@ const VideoSearch = (props) => {
     setLoading(true);
 
     axiosInstance
-      .get(`comparer/video-id?id=${id}`)
+      .get(`https://vilytic.herokuapp.com/comparer/video-id?id=${id}`)
       .then(res => {
         console.log(res.data);
         setViews(updateStats(views, res.data.stats.views, props.id));
