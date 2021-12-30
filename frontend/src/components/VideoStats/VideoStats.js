@@ -22,10 +22,6 @@ const VideoStats = (props) => {
                 {formatNumber(props.video.stats.likes)}
               </p>
               <p className="stat-text">
-                <i className="fas fa-thumbs-down"></i>{" "}
-                {formatNumber(props.video.stats.dislikes)}
-              </p>
-              <p className="stat-text">
                 <i className="fas fa-comments"></i>{" "}
                 {formatNumber(props.video.stats.comments)}
               </p>

@@ -4,7 +4,6 @@ import { ChartContext } from "../../../context/Charts";
 
 const LikeChart = () => {
   const [likes, setLikes] = useContext(ChartContext).likes;
-  const [dislikes, setDislikes] = useContext(ChartContext).dislikes;
 
   const likeDataset = [
     {
@@ -12,13 +11,6 @@ const LikeChart = () => {
       data: likes,
       backgroundColor: "rgba(75, 192, 192, 0.2)",
       borderColor: "rgba(75, 192, 192)",
-      borderWidth: 1,
-    },
-    {
-      label: "Dislikes",
-      data: dislikes,
-      backgroundColor: "rgba(255, 159, 64, 0.2)",
-      borderColor: "rgb(255, 159, 64)",
       borderWidth: 1,
     },
   ];

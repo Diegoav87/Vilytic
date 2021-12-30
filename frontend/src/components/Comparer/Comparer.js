@@ -38,27 +38,24 @@ const Comparer = () => {
           <ul className="nav nav-tabs card-header-tabs">
             <li onClick={() => chartLinkClick("views")} className="nav-item">
               <button
-                className={`nav-link text-white fw-bold chart-link ${
-                  currentChart === "views" ? "active" : ""
-                }`}
+                className={`nav-link text-white fw-bold chart-link ${currentChart === "views" ? "active" : ""
+                  }`}
               >
                 Views
               </button>
             </li>
             <li onClick={() => chartLinkClick("likes")} className="nav-item">
               <button
-                className={`nav-link text-white fw-bold chart-link ${
-                  currentChart === "likes" ? "active" : ""
-                }`}
+                className={`nav-link text-white fw-bold chart-link ${currentChart === "likes" ? "active" : ""
+                  }`}
               >
-                Likes and Dislikes
+                Likes
               </button>
             </li>
             <li onClick={() => chartLinkClick("comments")} className="nav-item">
               <button
-                className={`nav-link text-white fw-bold chart-link ${
-                  currentChart === "comments" ? "active" : ""
-                }`}
+                className={`nav-link text-white fw-bold chart-link ${currentChart === "comments" ? "active" : ""
+                  }`}
               >
                 Comments
               </button>

@@ -13,14 +13,12 @@ from .throttles import VideoIdTrottle, VideoSearchTrottle
 # Create your views here.
 
 
-@login_required
 def dashboard(request):
     return render(request, 'comparer/dashboard.html')
 
 # API
 
 
-@login_required
 @api_view(["GET"])
 @throttle_classes([VideoSearchTrottle])
 def video_search(request):
@@ -53,7 +51,6 @@ def video_search(request):
     return Response(data)
 
 
-@login_required
 @api_view(['GET'])
 @throttle_classes([VideoIdTrottle])
 def video_id(request):
@@ -75,7 +72,6 @@ def video_id(request):
             "stats": {
                 "views": item['statistics']['viewCount'],
                 "likes": item['statistics']['likeCount'],
-                "dislikes": item['statistics']['dislikeCount'],
                 "favorites": item['statistics']['favoriteCount'],
                 "comments": item['statistics']['commentCount'],
             },

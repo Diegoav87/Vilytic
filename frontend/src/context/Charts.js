@@ -5,7 +5,6 @@ export const ChartContext = createContext();
 export const ChartProvider = (props) => {
   const [views, setViews] = useState([]);
   const [likes, setLikes] = useState([]);
-  const [dislikes, setDislikes] = useState([]);
   const [comments, setComments] = useState([]);
 
   return (
@@ -13,7 +12,6 @@ export const ChartProvider = (props) => {
       value={{
         views: [views, setViews],
         likes: [likes, setLikes],
-        dislikes: [dislikes, setDislikes],
         comments: [comments, setComments],
       }}
     >

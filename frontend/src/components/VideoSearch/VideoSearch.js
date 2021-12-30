@@ -4,8 +4,9 @@ import VideoStats from "../VideoStats/VideoStats";
 import Spinner from "../Spinner/Spinner";
 import VideoList from "../VideoList/VideoList";
 import { ChartContext } from "../../context/Charts";
-import { errorHandler } from "../../utils/errorHandler";
-import { configUrl } from "../../Constants";
+
+import axiosInstance from '../../helpers/axios';
+import handleError from "../../helpers/axiosErrorHandler";
 
 const VideoSearch = (props) => {
   const [query, setQuery] = useState("");
@@ -15,7 +16,6 @@ const VideoSearch = (props) => {
 
   const [views, setViews] = useContext(ChartContext).views;
   const [likes, setLikes] = useContext(ChartContext).likes;
-  const [dislikes, setDislikes] = useContext(ChartContext).dislikes;
   const [comments, setComments] = useContext(ChartContext).comments;
 
   const [searchById, setSearchById] = useState(false);
@@ -29,56 +29,39 @@ const VideoSearch = (props) => {
 
   const sendQuery = () => {
     setLoading(true);
-    fetch(
-      `https://vilytic.herokuapp.com/comparer/video-search?query=${slugify(
+
+    axiosInstance
+      .get(`comparer/video-search?query=${slugify(
         query
-      )}`
-    )
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else if (res.status === 429) {
-          errorHandler(setError, setCurrent, 429);
-        } else {
-          errorHandler(setError, setCurrent, "");
-        }
-      })
-      .then((data) => {
+      )}`)
+      .then(res => {
+        console.log(res.data);
+        setVideos(res.data["items"]);
         setLoading(false);
-        console.log(data);
-        setVideos(data["items"]);
       })
-      .catch((err) => console.log(err));
+      .catch(err => {
+        handleError(err);
+        setLoading(false);
+      })
   };
 
   const sendId = (id) => {
     setLoading(true);
-    fetch(`https://vilytic.herokuapp.com/comparer/video-id?id=${id}`)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else if (res.status === 404) {
-          errorHandler(setError, setCurrent, 404);
-        } else if (res.status === 429) {
-          errorHandler(setError, setCurrent, 429);
-        } else {
-          errorHandler(setError, setCurrent, "");
-        }
-      })
-      .then((data) => {
-        console.log(data);
+
+    axiosInstance
+      .get(`comparer/video-id?id=${id}`)
+      .then(res => {
+        console.log(res.data);
+        setViews(updateStats(views, res.data.stats.views, props.id));
+        setLikes(updateStats(likes, res.data.stats.likes, props.id));
+        setComments(updateStats(comments, res.data.stats.comments, props.id));
+        setVideoStats(res.data);
         setLoading(false);
-
-        setViews(updateStats(views, data.stats.views, props.id));
-        setLikes(updateStats(likes, data.stats.likes, props.id));
-        setDislikes(updateStats(dislikes, data.stats.dislikes, props.id));
-        setComments(updateStats(comments, data.stats.comments, props.id));
-
-        setVideoStats(data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch(err => {
+        handleError(err);
+        setLoading(false);
+      })
   };
 
   const queryChange = (e) => {
